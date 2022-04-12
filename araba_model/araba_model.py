@@ -17,6 +17,7 @@ for model in modeller:
             link_devam=str(b.get("href"))
             link_basi="https://www.arabam.com/"
             seri_link_tamami=link_basi+link_devam
+            # print(seri_link_tamami)
            
             detay=requests.get(seri_link_tamami,headers=header)
             detay_soup=BeautifulSoup(detay.content,"html.parser")
@@ -27,7 +28,7 @@ for model in modeller:
                     link_devam=str(bmw.get("href"))
                     link_basi="https://www.arabam.com/"
                     arabaa_link_tamami=link_basi+link_devam
-                   
+                    print(arabaa_link_tamami)
                     özellik=requests.get(arabaa_link_tamami,headers=header)
                     özellik_soup=BeautifulSoup(özellik.content,"html.parser")
                                         
@@ -36,8 +37,9 @@ for model in modeller:
                         a=i.find_all("li",attrs={"class":"bcd-list-item"})
                         for b in a:
                             et=b.find("span",attrs={"class":"bli-particle bold"}).getText()
-                            deg=b.find("span",attrs={"class":"bli-particle "})
-                            print(et ,"==", deg)
+                            print(b.getText())
+                            # deg=b.find("span",attrs={"class":"bli-particle "})
+                            # print(et ,"==", deg)
                     
                     
 
